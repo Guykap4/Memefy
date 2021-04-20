@@ -102,7 +102,6 @@ function onRemoveLine() {
 }
 
 function onMoveLine(val) {
-    console.log('hi');
     moveLine(val);
     drawImg();
 }

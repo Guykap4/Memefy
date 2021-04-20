@@ -106,7 +106,6 @@ function removeLine() {
 
 function moveLine(val) {
     gMeme.lines[gMeme.selectedLineIdx].pos.y += val;
-    console.log(gMeme.lines[gMeme.selectedLineIdx].pos.y);
 }
 
 function changeFontSize(val) {

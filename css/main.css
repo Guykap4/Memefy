@@ -6,6 +6,7 @@
 
 html {
     font-family: RocknRoll;
+    background-color: #E3E3E3;
 }
 
 body {
@@ -77,6 +78,7 @@ main {
 }
 
 .nav span {
+    font-size: 25px;
     padding-right: 15px;
     cursor: pointer;
 }
@@ -371,7 +373,7 @@ main {
 
 .footer-div {
     margin: auto;
-    width: 200px;
+    width: 400px;
     height: 100px;
     margin-top: 40px;
     text-align: center;
@@ -379,7 +381,7 @@ main {
 
 /* MEDIUM */
 
-@media (min-width: 780px) {
+@media (min-width: 900px) {
     .generator-content {
         display: flex;
         flex-direction: row;
