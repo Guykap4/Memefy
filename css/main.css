@@ -102,7 +102,21 @@ main {
 
 .search-area {
     background-color: #FFFFFF;
-    padding: 10px;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    min-height: 40px;
+}
+
+.search-words-div span {
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.search-area input {
+    font-family: RocknRoll;
+    max-height: 40px;
+    margin-right: 20px;
 }
 
 /* GENERATOR */
@@ -381,7 +395,7 @@ main {
 
 /* MEDIUM */
 
-@media (min-width: 900px) {
+@media (min-width: 1060px) {
     .generator-content {
         display: flex;
         flex-direction: row;

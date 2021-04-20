@@ -9,6 +9,8 @@ function init() {
     gCanvas = document.querySelector('#canvas');
     gCtx = gCanvas.getContext('2d');
     addListeners();
+    LoadSearchWords();
+    renderSearchWords();
     renderGallery();
     renderMemesGallery();
 }
@@ -259,4 +261,18 @@ function isElementClicked(clickedPos) {
             return true;
         }
     }
+}
+
+function renderSearchWords() {
+    const words = getSearchWords();
+    let htmlStr = words.map(word => {
+        return `<span onclick="onSearchWord('${word.word}')" style="font-size: ${word.size}px">${word.word}</span>`
+    })
+    document.querySelector('.search-words-div').innerHTML = htmlStr.join('');
+}
+
+function onSearchWord(word) {
+    increaseWord(word);
+    onSearch(word);
+    renderSearchWords();
 }
