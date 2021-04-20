@@ -153,7 +153,7 @@ function onSaveMeme() {
 
 function renderMemesGallery() {
     const memes = getSavedMemes();
-    let htmlStr = memes.map((meme, index)=> {
+    let htmlStr = memes.map((meme, index) => {
         return `<div onclick="onMemeSelect(${index})" class="gallery-img relative"><img src="img/${meme.imgId}.jpg"><button onclick="onRemoveMeme(event, ${index})" class="remove-meme-btn">X</button></div>`
     })
     document.querySelector('.memes-gallery').innerHTML = htmlStr.join('');
@@ -275,4 +275,35 @@ function onSearchWord(word) {
     increaseWord(word);
     onSearch(word);
     renderSearchWords();
+}
+
+function onShareWhatsapp(elLink) {
+    elLink.href = `whatsapp://send?text=${encodeURIComponent(gCanvas.toDataURL('image/jpeg'))}`
+}
+
+function onShareFacebook(elForm, ev) {
+    ev.preventDefault();
+    document.getElementById('imgData').value = gCanvas.toDataURL();
+    let inputVal = document.getElementById('imgData').value;
+    doUploadImg(elForm, onSuccess, inputVal);
+
+    function onSuccess(uploadedImgUrl) {
+        uploadedImgUrl = encodeURIComponent(uploadedImgUrl);
+        window.open(`https://www.facebook.com/sharer?u=${uploadedImgUrl}`, '_blank');
+    }
+}
+
+function doUploadImg(elForm, onSuccess) {
+    var formData = new FormData(elForm);
+    fetch('//ca-upload.com/here/upload.php', {
+        method: 'POST',
+        body: formData
+    })
+        .then(function (res) {
+            return res.text()
+        })
+        .then(onSuccess)
+        .catch(function (err) {
+            console.error(err)
+        })
 }

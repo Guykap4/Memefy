@@ -104,7 +104,7 @@ main {
     background-color: #FFFFFF;
     display: flex;
     align-items: center;
-    padding-left: 10px;
+    padding-left: 30px;
     min-height: 40px;
 }
 
@@ -157,8 +157,8 @@ main {
 .close-btn {
     margin-top: 5px;
     margin-bottom: 5px;
-    width: 50px;
-    height: 30px;
+    width: 60px;
+    height: 50px;
     border: 1px solid #e6d5c5;
     background-color: #ffffff;
     border-radius: 10px;
@@ -230,6 +230,7 @@ main {
     border: 1px solid #e6d5c5;
     background-color: #ffffff;
     border-radius: 10px;
+    font-size: 19px;
 }
 
 .menu-btn:hover {
@@ -316,7 +317,7 @@ main {
 }
 
 .share-btn {
-    grid-column: 3 / 5;
+    grid-column: 3 / 4;
 }
 
 [name="stroke-color"], [name="font-color"] {
