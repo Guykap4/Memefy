@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <title>MEMEFY</title>
+    <link rel="stylesheet" href="./css/main.css">
+</head>
+
+<body onload="init()">
+
+    <div class="container">
+        <header class="header">
+            <div class="logo logo-div">MEMEFY</div>
+            <div class="nav"><span onclick="onShowGallery()">Gallery</span><span
+                    onclick="onShowMemesGallery()">Memes</span></div>
+        </header>
+
+        <main>
+            <div class="generator no-display">
+                <div class="generator-content">
+                    <div class="canvas-container">
+                        <div class="canvas-wrap">
+                            <canvas id="canvas" width="550" height="550"></canvas>
+                        </div>
+                        <button class="close-btn" onclick="onShowGallery()">close</button>
+                    </div>
+                    <div class="editor-container">
+                        <div class="menu-container">
+                            <div class="text-editor">
+                                <input class="meme-txt-input" oninput="onNewText(this.value)" type="text" value="">
+                                <button onclick="onSwitchLine()" class="menu-btn st-btn"><img
+                                        src="./icon/up-and-down-opposite-double-arrows-side-by-side.png"></button>
+                                <button onclick="onMoveLine(-25)" class="menu-btn mu-btn"><img
+                                        src="./icon/uparrow.png"></button>
+                                <button onclick="onMoveLine(25)" class="menu-btn md-btn"><img
+                                        src="./icon/downarrow.png"></button>
+                                <button onclick="onAddLine()" class="menu-btn at-btn"><img
+                                        src="./icon/add.png"></button>
+                                <button onclick="onRemoveLine()" class="menu-btn rt-btn"><img
+                                        src="./icon/trash.png"></button>
+                            </div>
+                            <div class="font-editor">
+                                <button onclick="onChangeFontSize(4)" class="menu-btn lt-btn"><img
+                                        src="./icon/increase font - icon.png"></button>
+                                <button onclick="onChangeFontSize(-4)" class="menu-btn st-btn"><img
+                                        src="./icon/decrease font - icon.png"></button>
+                                <button onclick="onChangeAlign('right')" class="menu-btn al-btn"><img
+                                        src="./icon/align-to-left.png"></button>
+                                <button onclick="onChangeAlign('center')" class="menu-btn ac-btn"><img
+                                        src="./icon/center-text-alignment.png"></button>
+                                <button onclick="onChangeAlign('left')" class="menu-btn ar-btn"><img
+                                        src="./icon/align-to-right.png"></button>
+                                <select onchange="onChangeFont(this.value)" class="change-font-input font-select">
+                                    <option value="Impact">Impact</option>
+                                    <option value="Arial">Arial</option>
+                                </select>
+                                <label><button onclick="onOpenStrokeColor()" class="menu-btn sc-btn"><img
+                                            src="./icon/text stroke.png"></button><input type="color"
+                                        name="stroke-color" oninput="onChangeStrokeColor(this.value)"></label>
+                                <label><button onclick="onOpenFontColor()" class="menu-btn fc-btn"><img
+                                            src="./icon/paint-board-and-brush.png"></button><input type="color"
+                                        name="font-color" oninput="onChangeFontColor(this.value)"></label>
+                            </div>
+                            <div class="save-menu">
+                                <a class="down-btn" onclick="onDownload(this)" download="my-meme.jpg" href="#"><button
+                                        class="menu-btn down-btn">Download</button></a>
+                                <button class="menu-btn share-btn">Share</button>
+                                <button onclick="onSaveMeme()" class="menu-btn save-btn"><img
+                                        src="./icon/save.png"></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="memes-gallery-container no-display">
+                <div class="memes-gallery">
+                </div>
+            </div>
+
+            <div class="search-area">
+                <input oninput="onSearch(this.value)" type="text">
+                Random Search Words
+            </div>
+
+            <div class="gallery">
+            </div>
+        </main>
+
+        <footer class="footer">
+            <div class="footer-div">
+                <span class="logo">MEMEFY</span><br>
+                <small>all rights reserved 2021 pl0x</small>
+            </div>
+        </footer>
+    </div>
+
+
+    <script src="./js/storage.service.js"></script>
+    <script src="./js/gallery.service.js"></script>
+    <script src="./js/meme.service.js"></script>
+    <script src="./js/generator.controller.js"></script>
+</body>
+
+</html>

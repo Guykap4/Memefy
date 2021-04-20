@@ -1,0 +1,398 @@
+/* GENERAL */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-family: RocknRoll;
+}
+
+body {
+    margin: 0;
+}
+
+img {
+    width: 100%;
+    max-width: 200px;
+}
+
+a {
+    font-family: RocknRoll;
+}
+
+button {
+    font-family: RocknRoll;
+}
+
+input {
+    font-family: RocknRoll;
+}
+
+main {
+    background-color: #E3E3E3;
+}
+
+/* FONTS */
+
+@font-face {
+    font-family: RocknRoll;
+    src: url(../font/RocknRollOne-Regular.ttf);
+}
+
+@font-face {
+    font-family: ZenDots;
+    src: url(../font/ZenDots-Regular.ttf);
+}
+
+/* COMPONENTS */
+
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+main {
+    position: relative;
+    flex-grow: 1;
+}
+
+/* HEADER */
+
+.header {
+    background-color: #FF7F00;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: ZenDots;
+    font-size: 30px;
+}
+
+.logo-div {
+    padding: 30px;
+}
+
+.nav span {
+    padding-right: 15px;
+    cursor: pointer;
+}
+
+.nav span:first-of-type {
+    border-right: 1px solid rgb(65, 65, 65);
+}
+
+.nav span:last-of-type {
+    margin-right: 15px;
+    padding-left: 15px;
+}
+
+/* CANVAS */
+
+#canvas {
+    border: 1px solid black;
+}
+
+/* SEARCH */
+
+.search-area {
+    background-color: #FFFFFF;
+    padding: 10px;
+}
+
+/* GENERATOR */
+
+.generator {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #E3E3E3;
+}
+
+.generator-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+/* GENERATOR CANVAS */
+
+.canvas-container {
+    background-color: #E3E3E3;
+    flex-basis: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.canvas-wrap {
+    width: 90%;
+    max-width: 580px;
+    max-height: 580px;
+    margin-top: 45px;
+}
+
+.close-btn {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 50px;
+    height: 30px;
+    border: 1px solid #e6d5c5;
+    background-color: #ffffff;
+    border-radius: 10px;
+}
+
+.close-btn:hover {
+    background-color: #FF7F00;
+    cursor: pointer;
+}
+
+/* GENERATOR MENU */
+
+.editor-container {
+    background-color: #E3E3E3;
+    flex-basis: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu-container {
+    width: 75%;
+    height: 90%;
+    display: flex;
+    min-height: 450px;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 10px 0 0;
+}
+
+.text-editor, .font-editor {
+    width: 100%;
+    display: grid;
+    grid-template: repeat(2, 1fr) / repeat(5, 1fr);
+    gap: 20px 10px;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+.text-editor {
+    grid-template-areas: "input input input input input" "mu-btn md-btn st-btn at-btn rt-btn";
+}
+
+.meme-txt-input {
+    font-size: 25px;
+    border: #e6d5c5 1px solid;
+}
+
+.change-font-input {
+    font-size: 25px;
+    border: #e6d5c5 1px solid;
+    font-family: RocknRoll;
+    width: 100%;
+}
+
+.text-editor input, .text-editor .font-select {
+    height: 50px;
+    border-radius: 10px;
+}
+
+.menu-btn, label {
+    height: 100%;
+    width: 50px;
+    justify-self: center;
+}
+
+.menu-btn {
+    border: 1px solid #e6d5c5;
+    background-color: #ffffff;
+    border-radius: 10px;
+}
+
+.menu-btn:hover {
+    background-color: #FF7F00;
+    cursor: pointer;
+}
+
+.text-editor input {
+    grid-area: input;
+}
+
+.mu-btn {
+    grid-area: mu-btn;
+}
+
+.md-btn {
+    grid-area: md-btn;
+}
+
+.st-btn {
+    grid-area: st-btn;
+}
+
+.at-btn {
+    grid-area: at-btn;
+}
+
+.rt-btn {
+    grid-area: rt-btn;
+}
+
+.font-editor {
+    height: 120px;
+    grid-template-areas: "lt-btn st-btn al-btn ac-btn ar-btn" "font-select font-select font-select sc-btn fc-btn";
+}
+
+.lt-btn {
+    grid-area: lt-btn;
+}
+
+.st-btn {
+    grid-area: st-btn;
+}
+
+.al-btn {
+    grid-area: al-btn;
+}
+
+.ac-btn {
+    grid-area: ac-btn;
+}
+
+.ar-btn {
+    grid-area: ar-btn;
+}
+
+.sc-btn {
+    grid-area: sc-btn;
+}
+
+.fc-btn {
+    grid-area: fc-btn;
+}
+
+.font-select {
+    grid-area: font-select;
+    width: 100%;
+}
+
+.save-menu {
+    width: 100%;
+    height: 50px;
+    display: grid;
+    grid-template: 1fr / repeat(5, 1fr);
+    column-gap: 10px;
+}
+
+.save-menu button, .save-menu a {
+    width: 100%;
+}
+
+.down-btn {
+    grid-column: 1 / 3;
+}
+
+.share-btn {
+    grid-column: 3 / 5;
+}
+
+[name="stroke-color"], [name="font-color"] {
+    position: absolute;
+    visibility: hidden;
+}
+
+/* GALLERY */
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-rows: repeat(auto-fill, 200px);
+    gap: 5px;
+    padding: 5px 5px 5px 5px;
+    background-color: #E3E3E3;
+}
+
+.gallery-img {
+    width: 200px;
+    height: 200px;
+    justify-self: center;
+}
+
+.gallery-img img {
+    width: 100%;
+    margin: auto;
+}
+
+/* MEMES GALLERY */
+
+.memes-gallery {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #E3E3E3;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-rows: repeat(auto-fill, 200px);
+    gap: 5px;
+    padding: 5px 5px 5px 5px;
+}
+
+.remove-meme-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 30px;
+    height: 30px;
+    border: none;
+    border-radius: 50%;
+    background-color: rgb(255, 101, 126);
+    color: #FFFFFF;
+}
+
+.remove-meme-btn:hover {
+    background-color: rgb(221, 65, 65);
+    cursor: pointer;
+}
+
+/* FOOTER */
+
+.footer {
+    background-color: #FF7F00;
+}
+
+.footer-div {
+    margin: auto;
+    width: 200px;
+    height: 100px;
+    margin-top: 40px;
+    text-align: center;
+}
+
+/* MEDIUM */
+
+@media (min-width: 780px) {
+    .generator-content {
+        display: flex;
+        flex-direction: row;
+        height: 100%;
+    }
+}
+
+/* HELPERS */
+
+.no-display {
+    display: none;
+}
+
+.relative {
+    position: relative;
+}
