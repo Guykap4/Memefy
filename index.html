@@ -79,15 +79,20 @@
                             </div>
                             <div class="save-menu">
                                 <a class="down-btn" onclick="onDownload(this)" download="my-meme.jpg" href="#"><button
-                                        class="menu-btn down-btn">Download</button></a>
+                                        class="menu-btn down-btn"><img src="./icon/download.png"></button></a>
 
-                                <a class="whatsapp-share-btn" onclick="onShareWhatsapp(this)"><button
-                                        class="menu-btn share-btn">WhatsApp</button></a>
+                                <form action="" method="POST" enctype="multipart/form-data"
+                                    onsubmit="onShareWhatsapp(this, event)">
+                                    <input name="imgData2" id="imgData2" hidden />
+                                    <button type="submit" class="menu-btn share-btn"><img
+                                            src="./icon/whatsapp.png"></button>
+                                </form>
 
-                                <form method="POST" enctype="multipart/form-data"
+                                <form action="" method="POST" enctype="multipart/form-data"
                                     onsubmit="onShareFacebook(this, event)">
-                                    <input id="imgData" hidden />
-                                    <button class="menu-btn share-btn">Facebook</button>
+                                    <input name="imgData" id="imgData" hidden />
+                                    <button type="submit" class="menu-btn share-btn"><img
+                                            src="./icon/facebook-logo.png"></button>
                                 </form>
 
                                 <button onclick="onSaveMeme()" class="menu-btn save-btn"><img

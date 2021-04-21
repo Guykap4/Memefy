@@ -286,24 +286,34 @@ function onUploadImg(ev) {
 }
 
 function onShareWhatsapp(elLink) {
-    elLink.href = `whatsapp://send?text=${encodeURIComponent(gCanvas.toDataURL('image/jpeg'))}`
+    ev.preventDefault();
+    document.getElementById('imgData2').value = gCanvas.toDataURL('image/jpeg');
+
+    function onSuccess(uploadedImgUrl) {
+        console.log(uploadedImgUrl);
+        uploadedImgUrl = encodeURIComponent(uploadedImgUrl)
+        window.open(`https://wa.me/?text=${uploadedImgUrl}`, '_blank');
+    }
+
+    doUploadImg(elForm, onSuccess);
 }
 
 function onShareFacebook(elForm, ev) {
     ev.preventDefault();
-    document.getElementById('imgData').value = gCanvas.toDataURL();
-    let inputVal = document.getElementById('imgData').value;
-    doUploadImg(elForm, onSuccess, inputVal);
+    document.getElementById('imgData').value = gCanvas.toDataURL('image/jpeg');
 
     function onSuccess(uploadedImgUrl) {
-        uploadedImgUrl = encodeURIComponent(uploadedImgUrl);
+        console.log(uploadedImgUrl);
+        uploadedImgUrl = encodeURIComponent(uploadedImgUrl)
         window.open(`https://www.facebook.com/sharer?u=${uploadedImgUrl}`, '_blank');
     }
+
+    doUploadImg(elForm, onSuccess);
 }
 
 function doUploadImg(elForm, onSuccess) {
-    var formData = new FormData(elForm);
-    fetch('//ca-upload.com/here/upload.php', {
+    let formData = new FormData(elForm);
+    fetch('http://ca-upload.com/here/upload.php', {
         method: 'POST',
         body: formData
     })
