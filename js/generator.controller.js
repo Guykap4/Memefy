@@ -291,7 +291,7 @@ function onShareWhatsapp(elForm, ev) {
 
     function onSuccess(uploadedImgUrl) {
         uploadedImgUrl = encodeURIComponent(uploadedImgUrl)
-        window.open(`https://wa.me/?image=${uploadedImgUrl}`, '_blank');
+        window.open(`https://wa.me/?text=${uploadedImgUrl}`, '_blank');
     }
 
     doUploadImg(elForm, onSuccess);
