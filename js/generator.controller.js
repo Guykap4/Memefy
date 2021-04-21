@@ -11,6 +11,7 @@ function init() {
     addListeners();
     LoadSearchWords();
     renderSearchWords();
+    getGalleryFromStorage();
     renderGallery();
     renderMemesGallery();
 }
@@ -51,8 +52,9 @@ function renderCanvas() {
 
 function drawImg() {
     const meme = getGMeme();
+    const gallery = getGGallery();
     var img = new Image()
-    img.src = `img/${meme.imgId}.jpg`;
+    img.src = gallery[meme.imgId-1].url;
     img.onload = () => {
         gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height) //img,x,y,xend,yend
         drawText();
@@ -76,7 +78,7 @@ function drawText() {
 function renderGallery() {
     const gallery = getGGallery();
     let htmlStr = gallery.map(img => {
-        return `<div onclick="onImgSelect(${img.id})" class="gallery-img"><img src="img/${img.id}.jpg"></div>`
+        return `<div onclick="onImgSelect(${img.id})" class="gallery-img"><img src="${img.url}"></div>`
     })
     document.querySelector('.gallery').innerHTML = htmlStr.join('');
 }
@@ -275,6 +277,12 @@ function onSearchWord(word) {
     increaseWord(word);
     onSearch(word);
     renderSearchWords();
+}
+
+function onUploadImg(ev) {
+    createImg(URL.createObjectURL(ev.target.files[0]));
+    saveGallery();
+    renderGallery();
 }
 
 function onShareWhatsapp(elLink) {
