@@ -78,21 +78,18 @@
 
                             </div>
                             <div class="save-menu">
+
                                 <a class="down-btn" onclick="onDownload(this)" download="my-meme.jpg" href="#"><button
                                         class="menu-btn down-btn"><img src="./icon/download.png"></button></a>
 
-                                <form action="" method="POST" enctype="multipart/form-data"
-                                    onsubmit="onShareWhatsapp(this, event)">
-                                    <input name="imgData2" id="imgData2" hidden />
-                                    <button type="submit" class="menu-btn share-btn"><img
-                                            src="./icon/whatsapp.png"></button>
+                                <form action="" method="POST" enctype="multipart/form-data" onsubmit="onShareWhatsapp(this, event)">
+                                    <input name="img" id="imgData2" hidden />
+                                    <button type="submit" class="menu-btn share-btn"><img src="./icon/whatsapp.png"></button>
                                 </form>
 
-                                <form action="" method="POST" enctype="multipart/form-data"
-                                    onsubmit="onShareFacebook(this, event)">
-                                    <input name="imgData" id="imgData" hidden />
-                                    <button type="submit" class="menu-btn share-btn"><img
-                                            src="./icon/facebook-logo.png"></button>
+                                <form action="" method="POST" enctype="multipart/form-data" onsubmit="onShareFacebook(this, event)">
+                                    <input name="img" id="imgData" hidden />
+                                    <button type="submit" class="menu-btn share-btn"><img src="./icon/facebook-logo.png"></button>
                                 </form>
 
                                 <button onclick="onSaveMeme()" class="menu-btn save-btn"><img

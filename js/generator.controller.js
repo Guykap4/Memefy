@@ -285,14 +285,13 @@ function onUploadImg(ev) {
     renderGallery();
 }
 
-function onShareWhatsapp(elLink) {
+function onShareWhatsapp(elForm, ev) {
     ev.preventDefault();
     document.getElementById('imgData2').value = gCanvas.toDataURL('image/jpeg');
 
     function onSuccess(uploadedImgUrl) {
-        console.log(uploadedImgUrl);
         uploadedImgUrl = encodeURIComponent(uploadedImgUrl)
-        window.open(`https://wa.me/?text=${uploadedImgUrl}`, '_blank');
+        window.open(`https://wa.me/?image=${uploadedImgUrl}`, '_blank');
     }
 
     doUploadImg(elForm, onSuccess);
@@ -303,7 +302,6 @@ function onShareFacebook(elForm, ev) {
     document.getElementById('imgData').value = gCanvas.toDataURL('image/jpeg');
 
     function onSuccess(uploadedImgUrl) {
-        console.log(uploadedImgUrl);
         uploadedImgUrl = encodeURIComponent(uploadedImgUrl)
         window.open(`https://www.facebook.com/sharer?u=${uploadedImgUrl}`, '_blank');
     }
