@@ -311,7 +311,7 @@ function onShareFacebook(elForm, ev) {
 
 function doUploadImg(elForm, onSuccess) {
     let formData = new FormData(elForm);
-    fetch('http://ca-upload.com/here/upload.php', {
+    fetch('//ca-upload.com/here/upload.php', {
         method: 'POST',
         body: formData
     })
