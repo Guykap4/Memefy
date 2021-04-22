@@ -11,6 +11,10 @@
 
 <body onload="init()">
 
+    <div class="saved-modal">
+        Meme Saved
+    </div>
+
     <div class="container">
         <header class="header">
             <div class="logo logo-div">MEMEFY</div>
@@ -27,6 +31,7 @@
                         </div>
                         <button class="close-btn" onclick="onShowGallery()">close</button>
                     </div>
+
                     <div class="editor-container">
                         <div class="menu-container">
                             <div class="text-editor">
@@ -34,19 +39,16 @@
                                 <button onclick="onSwitchLine()" class="menu-btn st-btn"><img
                                         src="./icon/up-and-down-opposite-double-arrows-side-by-side.png"></button>
 
-                                <button onclick="onMoveLine(-25)" class="menu-btn mu-btn"><img
-                                        src="./icon/uparrow.png"></button>
+                                <button onclick="onMoveLine(-25)" class="menu-btn mu-btn"><img src="./icon/uparrow.png"></button>
 
-                                <button onclick="onMoveLine(25)" class="menu-btn md-btn"><img
-                                        src="./icon/downarrow.png"></button>
+                                <button onclick="onMoveLine(25)" class="menu-btn md-btn"><img src="./icon/downarrow.png"></button>
 
-                                <button onclick="onAddLine()" class="menu-btn at-btn"><img
-                                        src="./icon/add.png"></button>
+                                <button onclick="onAddLine()" class="menu-btn at-btn"><img src="./icon/add.png"></button>
 
-                                <button onclick="onRemoveLine()" class="menu-btn rt-btn"><img
-                                        src="./icon/trash.png"></button>
+                                <button onclick="onRemoveLine()" class="menu-btn rt-btn"><img src="./icon/trash.png"></button>
 
                             </div>
+
                             <div class="font-editor">
                                 <button onclick="onChangeFontSize(4)" class="menu-btn lt-btn"><img
                                         src="./icon/increase font - icon.png"></button>
@@ -92,8 +94,7 @@
                                     <button type="submit" class="menu-btn share-btn"><img src="./icon/facebook-logo.png"></button>
                                 </form>
 
-                                <button onclick="onSaveMeme()" class="menu-btn save-btn"><img
-                                        src="./icon/save.png"></button>
+                                <button onclick="onSaveMeme()" class="menu-btn save-btn"><img src="./icon/save.png"></button>
                             </div>
                         </div>
                     </div>

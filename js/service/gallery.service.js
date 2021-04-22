@@ -2,6 +2,10 @@
 
 var gGallery;
 
+function getImgById(id) {
+    return gGallery.find(img => img.id === id);
+}
+
 function getGGallery() {
     return gGallery;
 }

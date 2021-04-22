@@ -27,18 +27,21 @@ function onShowMemesGallery() {
     document.querySelector('.memes-gallery-container').classList.remove('no-display')
     document.querySelector('.gallery').classList.add('no-display')
     document.querySelector('.generator').classList.add('no-display')
+    document.querySelector('main').classList.remove('main-min-height')
 }
 
 function onShowGallery() {
     document.querySelector('.gallery').classList.remove('no-display')
     document.querySelector('.generator').classList.add('no-display')
     document.querySelector('.memes-gallery-container').classList.add('no-display')
+    document.querySelector('main').classList.remove('main-min-height')
 }
 
 function onShowGenerator() {
     document.querySelector('.generator').classList.remove('no-display')
     document.querySelector('.gallery').classList.add('no-display')
     document.querySelector('.memes-gallery-container').classList.add('no-display')
+    document.querySelector('main').classList.add('main-min-height')
 }
 
 function resizeCanvas() {
@@ -150,13 +153,20 @@ function onDownload(elLink) {
 
 function onSaveMeme() {
     saveMeme();
+    renderSavedModal()
     renderMemesGallery();
+}
+
+function renderSavedModal() {
+    let elModal = document.querySelector('.saved-modal');
+    elModal.style.opacity = 1;
+    setTimeout(() => elModal.style.opacity = 0, 1000)
 }
 
 function renderMemesGallery() {
     const memes = getSavedMemes();
     let htmlStr = memes.map((meme, index) => {
-        return `<div onclick="onMemeSelect(${index})" class="gallery-img relative"><img src="img/${meme.imgId}.jpg"><button onclick="onRemoveMeme(event, ${index})" class="remove-meme-btn">X</button></div>`
+        return `<div onclick="onMemeSelect(${index})" class="gallery-img relative"><img src="${getImgById(meme.imgId).url}"><button onclick="onRemoveMeme(event, ${index})" class="remove-meme-btn">X</button></div>`
     })
     document.querySelector('.memes-gallery').innerHTML = htmlStr.join('');
 }
@@ -181,8 +191,6 @@ function onSearch(val) {
     })
     document.querySelector('.gallery').innerHTML = htmlStr.join('');
 }
-
-// DRAG AND DROP
 
 function addListeners() {
     addMouseListeners()
@@ -268,7 +276,7 @@ function isElementClicked(clickedPos) {
 function renderSearchWords() {
     const words = getSearchWords();
     let htmlStr = words.map(word => {
-        return `<span onclick="onSearchWord('${word.word}')" style="font-size: ${word.size}px">${word.word}</span>`
+        return `<span onclick="onSearchWord('${word.value}')" style="font-size: ${word.size}px">${word.word}</span>`
     })
     document.querySelector('.search-words-div').innerHTML = htmlStr.join('');
 }
